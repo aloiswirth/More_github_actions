@@ -1,0 +1,6 @@
+name: 'Get Employee Slack Action (JavaScript)'
+description: "Looks up an employee's Slack ID by their GitHub username"
+
+runs:
+  using: node20
+  main: main.js
