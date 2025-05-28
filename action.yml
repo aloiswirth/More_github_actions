@@ -1,0 +1,30 @@
+name: "Send Status Notification to Slack (Composite)"
+description: "Sends a status notification to a Slack channel using a GitHub Action"
+
+inputs:
+  slack_token:
+    description: "Slack API token for authentication"
+    required: true
+  slack_channel:
+    description: "Slack channel to send the notification to"
+    required: true
+  status_message:
+    description: "The status message to send to Slack"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - uses: './get-employxyee-js-action'
+      id: get_employee
+      with:
+        github_token: ${{ inputs.github_token }}
+        github_username: ${{ inputs.github_username }}
+        slack_token: ${{ inputs.slack_token }}
+    
+    - name: slack-send
+      uses: 'slackapi/slack-github-action@v1.26.0'
+      with:
+       cha
+      env:
+        SLACK_BOT_TOKEN: ${{ inputs.slack_token }}

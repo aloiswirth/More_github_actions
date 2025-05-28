@@ -1,6 +1,21 @@
 name: 'Get Employee Slack Action (JavaScript)'
 description: "Looks up an employee's Slack ID by their GitHub username"
 
+inputs:
+  github_token:
+    description: 'GitHub API token for authentication'
+    required: true
+    default: ''
+  github_username:
+    description: 'GitHub username of the employee'
+    required: true
+    default: ''
+  slack_token:
+    description: 'Slack API token for authentication'
+    required: true
+    default: ''
+  
+
 runs:
   using: node20
   main: main.js
